@@ -10,21 +10,22 @@ note around the neck before moving on.
 
 ## Stack
 
-- TypeScript, React 19, Vite
+- TypeScript, React 19, Vite and pnpm
 - Tailwind CSS
 - Tone.js (lazy-loaded) + sampled piano/guitar via `tonejs-instrument-*-mp3`
 - Vitest + React Testing Library for unit and component tests
 - Playwright (Chromium desktop, iPhone 12 WebKit) for end-to-end
+
 
 No backend. Settings persist via `localStorage`.
 
 ## Running
 
 ```sh
-npm install
-npm run dev          # dev server at http://localhost:5173
-npm run build        # type-check + production bundle into dist/
-npm run preview      # serve the production bundle locally
+pnpm install
+pnpm run dev          # dev server at http://localhost:5173
+pnpm run build        # type-check + production bundle into dist/
+pnpm run preview      # serve the production bundle locally
 ```
 
 Tests:
