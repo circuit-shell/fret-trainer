@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: theme('fontFamily.body');
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background-color: theme('colors.walnut.dark');
+  background-image: theme('backgroundImage.wood-grain');
+  background-size: 480px 480px;
+  background-repeat: repeat;
+  color: theme('colors.cream');
+}
+
+h1,
+h2,
+h3 {
+  font-family: theme('fontFamily.display');
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* When the fretboard is rotated 90deg clockwise (vertical mobile layout),
+ * counter-rotate just the text-bearing spans so letters and symbols read
+ * upright in the rotated view. The `.fretboard-rotated` marker class lives
+ * on the rotation wrapper in App.tsx; any descendant with `.counter-rotate`
+ * rotates back -90deg to land upright.
+ *
+ * `inline-block` is needed because `transform` only applies to non-inline
+ * elements; `transform-origin: center` keeps the counter-rotation pivoting
+ * around each glyph's own center. */
+.fretboard-rotated .counter-rotate {
+  display: inline-block;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+/* In the rotated view, the unrotated HEIGHT of the playing grid becomes the
+ * visual WIDTH. Each of the 6 string rows is normally 44 px tall (the tap-
+ * target minimum) — bumping the row height widens the spacing between
+ * strings and makes the rotated fretboard look wider on screen.
+ *
+ * The row height is supplied by App.tsx via the `--rotated-row-h` custom
+ * property so it can scale to the actual viewport width and avoid clipping
+ * the outermost strings on narrow phones. Falls back to 64 px if the
+ * variable isn't set. The playing grid is the only grid inside the rotation
+ * wrapper, so this selector is specific enough; the FretIndicatorBar uses
+ * its own grid that's not a descendant of `[role="grid"][aria-label="Fretboard"]`. */
+.fretboard-rotated [role="grid"][aria-label="Fretboard"] {
+  grid-auto-rows: var(--rotated-row-h, 64px);
+}

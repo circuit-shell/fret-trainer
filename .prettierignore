@@ -1,0 +1,8 @@
+node_modules
+dist
+build
+coverage
+package-lock.json
+public/textures
+playwright-report
+test-results

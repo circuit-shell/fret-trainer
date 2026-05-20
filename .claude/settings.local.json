@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mise ls *)",
+      "Bash(mise --version)",
+      "Bash(npm view *)",
+      "Bash(mise ls-remote *)"
+    ]
+  }
+}
