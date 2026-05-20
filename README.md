@@ -90,5 +90,5 @@ code-split — they load only when sound is enabled.
 
 ## License
 
-Internal practice project. Treble-clef SVG (also used as the favicon) is from
+Practice project. Treble-clef SVG (also used as the favicon) is from
 rickvanderzwet on Openclipart, public domain.
